@@ -9,6 +9,7 @@ public class SouvenirApp {
 		// TODO Auto-generated method stub
 		System.out.println("Edited by Nav");
 		System.out.println("edited by ashok12");
+		System("pause");
 		
 		
 
