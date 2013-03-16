@@ -7,9 +7,7 @@ public class SouvenirApp {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Edited by Nav");
-		System.out.println("edited by ashok12");
-		System("pause");
+		System.out.println("Code of the main method goes here!");
 		
 		
 
