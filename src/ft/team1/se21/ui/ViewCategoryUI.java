@@ -10,12 +10,13 @@
 
 package ft.team1.se21.ui;
 
-public class ViewCategory extends javax.swing.JFrame {
+
+public class ViewCategoryUI extends javax.swing.JFrame {
 
     /**
      * Creates new form ViewCategory
      */
-    public ViewCategory() {
+    public ViewCategoryUI() {
         initComponents();
     }
 
@@ -94,13 +95,13 @@ public class ViewCategory extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewCategory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCategoryUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewCategory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCategoryUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewCategory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCategoryUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewCategory.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewCategoryUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -108,7 +109,7 @@ public class ViewCategory extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-               ViewCategory viewCategoryForm= new ViewCategory();
+               ViewCategoryUI viewCategoryForm= new ViewCategoryUI();
                viewCategoryForm.setVisible(true);
             }
         });
