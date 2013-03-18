@@ -1,4 +1,13 @@
-package ft.team1.se21.ui;
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Admin
+ */
+//package ft.team1.se21.ui;
 
 public class AddCategoryUI extends javax.swing.JDialog {
 
@@ -40,7 +49,6 @@ public class AddCategoryUI extends javax.swing.JDialog {
         jTextField2.setText("jTextField2");
 
         jButton1.setText("SAVE");
-        jButton1.setActionCommand("SAVE");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -54,25 +62,25 @@ public class AddCategoryUI extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(36, 36, 36)
+                        .addGap(76, 76, 76)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 161, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(57, 57, 57)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2))
                         .addGap(56, 56, 56)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(112, 112, 112)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(56, 56, 56)
-                        .addComponent(jButton1)
-                        .addGap(57, 57, 57)
-                        .addComponent(jButton2)))
-                .addContainerGap(120, Short.MAX_VALUE))
+                            .addComponent(jTextField1)
+                            .addComponent(jTextField2))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +99,7 @@ public class AddCategoryUI extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
 
         pack();
@@ -99,8 +107,8 @@ public class AddCategoryUI extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        //CategoryManager cm=new CategoryManger();
-        //cm.addCategory;
+       // CategoryManager cm=new CategoryManger();
+        //cm.addCategory
     }                                        
 
     /**
