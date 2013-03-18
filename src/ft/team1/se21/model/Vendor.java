@@ -12,19 +12,35 @@
 package ft.team1.se21.model;
 
 public class Vendor {
-	public void getName() {
-	
+	private String vendorName;
+	private String vendorDescription;
+
+	public Vendor() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	
-	public void setName() {
-	
+
+	public Vendor(String vendorName, String vendorDescription) {
+		super();
+		this.vendorName = vendorName;
+		this.vendorDescription = vendorDescription;
 	}
-	
-	public void getDescription() {
-	
+
+	public String getVendorName() {
+		return vendorName;
 	}
-	
-	public void setDescription() {
-	
+
+	public void setVendorName(String vendorName) {
+		this.vendorName = vendorName;
 	}
+
+	public String getVendorDescription() {
+		return vendorDescription;
+	}
+
+	public void setVendorDescription(String vendorDescription) {
+		this.vendorDescription = vendorDescription;
+	}
+
 }
+
