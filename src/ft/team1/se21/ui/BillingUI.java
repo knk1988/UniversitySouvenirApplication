@@ -6,7 +6,7 @@ package ft.team1.se21.ui;
 
 /**
  *
- * @author Rinu s
+ * @author Rinu sharma
  */
 public class BillingUI extends javax.swing.JFrame {
 
