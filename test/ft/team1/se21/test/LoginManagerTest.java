@@ -1,5 +1,5 @@
-package ft.team1.se21.test;
+package ft.team1.se21;
 
-public class LoginManagerTest {
+import javax.swing.*;
 
-}
+public class LoginUI 
