@@ -99,8 +99,8 @@ public class AddCategoryUI extends javax.swing.JDialog {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                         
         // TODO add your handling code here:
-        CategoryManager cm=new CategoryManger();
-        cm.addCategory
+        //CategoryManager cm=new CategoryManger();
+        //cm.addCategory;
     }                                        
 
     /**
