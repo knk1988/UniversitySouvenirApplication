@@ -35,6 +35,8 @@ public class LoginUI extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("UNIVERSITY SOUVENIR APPLCIATION SYSTEM");
+        
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel1.setText("            UNIVERSITY SOUVENIR APPLICATION SYSTEM");
@@ -60,7 +62,7 @@ public class LoginUI extends javax.swing.JFrame {
         });
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 0, 11)); // NOI18N
-        jButton2.setText("RESET");
+        jButton2.setText("CANCEL");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -167,6 +169,7 @@ public class LoginUI extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+            	
                 new LoginUI().setVisible(true);
             }
         });
