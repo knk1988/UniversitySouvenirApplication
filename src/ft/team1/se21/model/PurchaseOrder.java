@@ -10,12 +10,27 @@
 
 package ft.team1.se21.model;
 
+import java.util.List;
+
 public class PurchaseOrder {
-	public void addPoLineItem(Object PoLineItem) {
-	
+	private List<POLineItem> poLineItems;
+
+	public PurchaseOrder() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	
+
+	public PurchaseOrder(List<POLineItem> poLineItems) {
+		super();
+		this.poLineItems = poLineItems;
+	}
+
+	public void addPoLineItem(POLineItem item) {
+     poLineItems.add(item);
+	}
+
 	public String toString() {
-	return "String";
+		return "String";
 	}
 }
+

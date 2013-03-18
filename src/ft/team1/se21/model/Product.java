@@ -11,84 +11,122 @@
 package ft.team1.se21.model;
 
 
+import java.util.Map;
+
 public class Product {
-	public String productid;
-	public String name;
-	public String description;
-	public String quantity;
-	public String price;
-	public String barcodenumber;
-	public Integer threshold;
-	public Integer orderquantity;
+	private String productId;
+	private String productName;
+	private String description;
+	private String quantity;
+	private String price;
+	private String barcodeNumber;
+	private String threshold;
+	private String orderQuantity;
+	private Category category;
+
+	public Product() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Product(String productId, String productName, String description,
+			String quantity, String price, String barcodeNumber,
+			String threshold, String orderQuantity, Category category) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.description = description;
+		this.quantity = quantity;
+		this.price = price;
+		this.barcodeNumber = barcodeNumber;
+		this.threshold = threshold;
+		this.orderQuantity = orderQuantity;
+		this.category = category;
+	}
+
+	public Product(Map<String, Object> properties) {
+		super();
+		this.productId = (String) properties.get("productId");
+		this.productName = (String) properties.get("name");
+		this.description = (String) properties.get("description");
+		this.quantity = (String) properties.get("quantity");
+		this.price = (String) properties.get("price");
+		this.barcodeNumber = (String) properties.get("barcodeNumber");
+		this.threshold = (String) properties.get("threshold");
+		this.orderQuantity = (String) properties.get("orderQuantity");
+		this.category = (Category) properties.get("category");
+	}
+
 	public String getProductId() {
-	return "ProductId";
+		return productId;
 	}
-	
-	public void setProductId(Object String) {
-	
+
+	public void setProductId(String productId) {
+		this.productId = productId;
 	}
-	
-	public String getName() {
-	return "Name";
-	}
-	
-	public void setName(Object String) {
-	
-	}
-	
+
 	public String getDescription() {
-	return "Desc";
+		return description;
 	}
-	
-	public void setDescription(Object String) {
-	
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
-	
+
 	public String getQuantity() {
-	return "Quantity";
+		return quantity;
 	}
-	
-	public void setQuantity(Object String) {
-	
+
+	public void setQuantity(String quantity) {
+		this.quantity = quantity;
 	}
-	
+
 	public String getPrice() {
-	return "Price";
+		return price;
 	}
-	
-	public void setPrice(Object String) {
-	
+
+	public void setPrice(String price) {
+		this.price = price;
 	}
-	
-	public String getBarcodenumber() {
-	return "Barcodenumber";	
+
+	public String getBarcodeNumber() {
+		return barcodeNumber;
 	}
-	
-	public void setBarcodenumber(Object String) {
-	
+
+	public void setBarcodeNumber(String barcodeNumber) {
+		this.barcodeNumber = barcodeNumber;
 	}
-	
-	public Integer getThreshold() {
-	return 1;
+
+	public String getThreshold() {
+		return threshold;
 	}
-	
-	public void setThreshold(Object Int) {
-	
+
+	public void setThreshold(String threshold) {
+		this.threshold = threshold;
 	}
-	
-	public Integer getQrderQuantity() {
-	return 1;
+
+	public String getOrderQuantity() {
+		return orderQuantity;
 	}
-	
-	public void setOrderQuantity(Object Int) {
-	
+
+	public void setOrderQuantity(String orderQuantity) {
+		this.orderQuantity = orderQuantity;
 	}
-	
-	public String generateProductId(Object String) {
-	return "prodid";
+
+	public String getProductName() {
+		return productName;
 	}
-	
-	public String toString() {
-	return "string";
+
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
 }

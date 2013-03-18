@@ -11,11 +11,42 @@
 
 package ft.team1.se21.model;
 
+import java.util.List;
+
 public class Transaction {
-	@SuppressWarnings("unused")
-	private int transactionid;
-	@SuppressWarnings("unused")
-	private void addTransactionLineItem(Object TransactionLineItem) {
-	
+
+	private int transactionId;
+    private List<TransactionLineItem> items;
+    
+    public Transaction() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Transaction(int transactionId, List<TransactionLineItem> items) {
+		super();
+		this.transactionId = transactionId;
+		this.items = items;
+	}
+
+	public int getTransactionId() {
+		return transactionId;
+	}
+
+	public void setTransactionId(int transactionId) {
+		this.transactionId = transactionId;
+	}
+
+	public List<TransactionLineItem> getItems() {
+		return items;
+	}
+
+	public void setItems(List<TransactionLineItem> items) {
+		this.items = items;
+	}
+
+	public void addTransactionLineItem(TransactionLineItem txnLineitem) {
+     items.add(txnLineitem);
 	}
 }
+

@@ -12,17 +12,35 @@
 package ft.team1.se21.model;
 
 public class Category {
-	public Object categorycode;
-	public String name;
-	public String getCode() {
-	return "Code";
+	private String categoryCode;
+	private String categoryName;
+
+	public Category() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	
-	public void setCode(Object String) {
-	
+
+	public Category(String categoryCode, String categoryName) {
+		super();
+		this.categoryCode = categoryCode;
+		this.categoryName = categoryName;
 	}
-	
-	public void Operation1() {
-	
+
+	public String getCategoryCode() {
+		return categoryCode;
 	}
+
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
+	}
+
+	public String getName() {
+		return categoryName;
+	}
+
+	public void setName(String categoryName) {
+		this.categoryName = categoryName;
+	}
+
 }
+
