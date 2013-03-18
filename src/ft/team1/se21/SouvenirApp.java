@@ -9,7 +9,7 @@ public class SouvenirApp {
 		// TODO Auto-generated method stub
 		System.out.println("Code of the main method goes here!");
 		System.out.println("haha");
-		System.out.println("Test code for Jerry");
+		System.out.println("For Jerry");
 		
 
 	}
