@@ -11,15 +11,81 @@
 
 package ft.team1.se21.manager;
 
-import ft.team1.se21.model.Product;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+
+import ft.team1.se21.constants.Constants;
+import ft.team1.se21.datafile.*;
+import ft.team1.se21.model.*;
+import ft.team1.se21.ui.CheckInventoryUI;
+import ft.team1.se21.ui.VendorSelectionUI;
 
 public class InventoryManager {
-	public Object memberName;
-	public Product getProductbelowThreshold() {
-	return new Product();
+	private HashMap<String,PurchaseOrder> pomap;
+	/**
+	 * @author Jithesh
+	 * @return list of products to order
+	 */
+	public ArrayList<Product> getProductbelowThreshold() {
+		ProductManager pmanager = new ProductManager();
+		return pmanager.getProductsToOrder();
+	}
+	/**
+	 * @author Jithesh
+	 * @param plist: This is the list of products that are in short of inventory.
+	 * Method generates purchase order for each category of the products in list and calls the vendor selection ui for
+	 * the user to select the vendors to which the PO needs to be sent for.
+	 */
+	public HashMap<String,PurchaseOrder> generatePO(ArrayList<Product> plist) throws IOException {
+		String categorycd, vendorfilename;
+		PurchaseOrder po;
+		POLineItem poline;
+		Product prod;
+		pomap = new HashMap<String,PurchaseOrder>();
+		Iterator i = plist.iterator();
+		//For each product in the list, get their category and load the vendors for the category from the respective vendor file.
+		while (i.hasNext()){
+			prod = (Product)i.next();
+			categorycd = prod.getCategory().getCategoryCode();
+			if (pomap.containsKey(categorycd)){
+				po = pomap.get(categorycd);
+				poline = new POLineItem(prod.getProductId(),prod.getQuantity());
+				po.addPoLineItem(poline);
+				pomap.put(categorycd, po);
+			} else {
+				vendorfilename = Constants.FILE_ROOT+"Vendors_"+categorycd+".dat";
+				System.out.println(vendorfilename);
+				VendorDataFile vendorfile = new VendorDataFile();
+				ArrayList<Vendor> vendorlist = (ArrayList<Vendor>)vendorfile.readVendors(vendorfilename);
+				poline = new POLineItem(prod.getProductId(),prod.getQuantity());
+				po = new PurchaseOrder(null,categorycd,vendorlist);
+				po.addPoLineItem(poline);
+				pomap.put(categorycd, po);
+				
+			}
+		}
+		return pomap;
+		//Display the VendorSelection UI and load it with the category and vendors list.
+		//VendorSelectionUI vSelect = new VendorSelectionUI(this,pomap);
+	}
+	/**
+	 * @author Jithesh
+	 * method to get the purchase order object.
+	 */
+	public HashMap<String,PurchaseOrder> getPO(){
+		return pomap;
 	}
 	
-	public void generatePO(Object Products[]) {
+	/**
+	 * @author Jithesh
+	 * method to start the UI related to the manager.
+	 */
 	
+	public void start(){
+		CheckInventoryUI ui = new CheckInventoryUI(this);
 	}
+	
+	
 }
