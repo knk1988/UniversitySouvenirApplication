@@ -105,3 +105,4 @@ public class CheckInventoryUI extends javax.swing.JFrame {
     private javax.swing.JTable jTable2;
     // End of variables declaration
 }
+ 
