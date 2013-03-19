@@ -1,6 +1,6 @@
 package ft.team1.se21.datafile;
 
-import java.io.IOException;
+import java.io.*;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,6 +25,60 @@ public class TransactionDataFile extends DataFile {
 	public void setTransactionMap(
 			Map<String, List<TransactionLineItem>> transactionMap) {
 		this.transactionMap = transactionMap;
+	}
+	
+	public long getLastTransactionId(String path) throws IOException{
+		 long transactionId;
+		 File file = new File(path);
+		 String lastLine = getTail(file);
+		 String[] arr =lastLine.split(",");
+		 if(arr[0] == null || arr[0] == ""){
+			 transactionId = 0;
+		 }
+		 else{
+			 transactionId = Long.parseLong(arr[0]);
+		 }		 
+		 return transactionId;
+	}
+	
+	private String getTail(File file) throws IOException {
+		RandomAccessFile fileHandler = null;
+	    try {
+	        fileHandler = new RandomAccessFile(file, "r");
+	        long fileLength = file.length() - 1;
+	        StringBuilder sb = new StringBuilder();
+
+	        for(long filePointer = fileLength; filePointer != -1; filePointer--){
+	            fileHandler.seek( filePointer );
+	            int readByte = fileHandler.readByte();
+
+	            if( readByte == 0xA ) {
+	                if( filePointer == fileLength ) {
+	                    continue;
+	                } else {
+	                    break;
+	                }
+	            } else if( readByte == 0xD ) {
+	                if( filePointer == fileLength - 1 ) {
+	                    continue;
+	                } else {
+	                    break;
+	                }
+	            }
+	            sb.append( ( char ) readByte );
+	        }
+	        String lastLine = sb.reverse().toString();
+	        return lastLine;
+	    } catch( java.io.FileNotFoundException e ) {
+	        e.printStackTrace();
+	        return null;
+	    } catch( java.io.IOException e ) {
+	        e.printStackTrace();
+	        return null;
+	    }
+	    finally {
+	    	fileHandler.close(); 
+	    }
 	}
 
 	public Map<String, List<TransactionLineItem>> readTransactions(String path)

@@ -10,10 +10,12 @@
 
 package ft.team1.se21.manager;
 
+import ft.team1.se21.model.*;
+
 
 public class MemberManager {
 	public Object memberName;
-	public void addMember(Object Member) {
+	public void addMember(Member memberDetail) {
 	
 	}
 	
@@ -28,5 +30,13 @@ public class MemberManager {
 	
 	public void generateReport() {
 	
+	}
+	
+	public Member getMemberDetails(String memberId){
+		return new Member();
+	}
+	
+	public void updateMember(Member memberDetail){
+		
 	}
 }

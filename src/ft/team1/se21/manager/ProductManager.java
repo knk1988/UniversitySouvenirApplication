@@ -30,8 +30,8 @@ public class ProductManager {
 	return new ArrayList<Product>();
 	}
 	
-	public void getProduct(String productId){
-	
+	public Product getProduct(String productId){
+		return new Product();
 	}
 	
 	public void generateReport() {

@@ -12,10 +12,10 @@ public class Discount_OffersDataFile extends DataFile {
 	List<DiscountAndOffers> discountOffersList;
 	List<Vendor> vendorList;
 
-	public List<Vendor> readDiscount_Offers(String path) throws IOException {
+	public List<DiscountAndOffers> readDiscount_Offers(String path) throws IOException {
 
-		List<String> readVendorList = super.readFromFile(path);
-		for (String item : readVendorList) {
+		List<String> discountsAndOffers = super.readFromFile(path);
+		for (String item : discountsAndOffers) {
 			String[] vendorData = item.split(Constants.COMMA);
 			Vendor vendor = new Vendor();
 			vendor.setVendorName(vendorData[0]);
@@ -24,7 +24,7 @@ public class Discount_OffersDataFile extends DataFile {
 
 		}
 
-		return vendorList;
+		return discountOffersList;
 	}
 
 	public void writeVendors(String path) throws IOException {
