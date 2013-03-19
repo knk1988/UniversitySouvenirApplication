@@ -10,19 +10,26 @@
 
 package ft.team1.se21.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PurchaseOrder {
-	private List<POLineItem> poLineItems;
+	private List<POLineItem> poLineItems = new ArrayList<POLineItem>();
+	private String categoryCode;
+	private ArrayList<Vendor> vendorList = new ArrayList<Vendor>();
 
 	public PurchaseOrder() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PurchaseOrder(List<POLineItem> poLineItems) {
+	public PurchaseOrder(List<POLineItem> poLineItems,String categoryCd,ArrayList<Vendor> vList) {
 		super();
-		this.poLineItems = poLineItems;
+		if (poLineItems!= null) {
+			this.poLineItems = poLineItems;
+		}
+		this.categoryCode = categoryCd;
+		this.vendorList = vList;
 	}
 
 	public void addPoLineItem(POLineItem item) {
@@ -31,6 +38,22 @@ public class PurchaseOrder {
 
 	public String toString() {
 		return "String";
+	}
+
+	public String getCategoryCode() {
+		return categoryCode;
+	}
+
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
+	}
+
+	public ArrayList<Vendor> getVendorList() {
+		return vendorList;
+	}
+
+	public void setVendorList(ArrayList<Vendor> vendorList) {
+		this.vendorList = vendorList;
 	}
 }
 
