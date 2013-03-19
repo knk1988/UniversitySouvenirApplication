@@ -1,16 +1,14 @@
 package ft.team1.se21.constants;
 
 public class Constants {
-	public static String VENDOR_PATH="resources//Vendor.dat"; 
-	public static String CATEGORY_PATH="resouces//Category.dat";
-	public static String PRODUCT_PATH="resources//Product.dat";
-	public static String TRANSACTION_PATH="resources//Transaction.dat";
-	public static String USER_PATH="resources//User.dat";
-	public static String DISCOUNT_PATH="resources//DiscountAndOffers.dat";
-	public static String VENDORS_STA_PATH="resources//Vendors_CLO.dat";
-	public static String VENDORS_CLO_PATH="resources//Vendors_MUG.dat";
-	public static String VENDORS_MUG_PATH="resources//Vendors_STA.dat";
-	public static String COMMA=",";
-	public static String NEWLINE="\n";
+	public static final String FILE_ROOT = "data//";
+	public static final String VENDOR_PATH="data//Vendor.dat"; 
+	public static final String CATEGORY_PATH="data//Category.dat";
+	public static final String PRODUCT_PATH="data//Product.dat";
+	public static final String TRANSACTION_PATH="data//Transaction.dat";
+	public static final String USER_PATH="data//User.dat";
+	public static final String DISCOUNT_PATH="data//DiscountAndOffers.dat";
+	public static final String COMMA=",";
+	public static final String NEWLINE="\n";
 	
 }
