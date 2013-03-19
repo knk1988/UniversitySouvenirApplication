@@ -10,6 +10,13 @@
 
 package ft.team1.se21.manager;
 
+import java.awt.List;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import ft.team1.se21.constants.Constants;
+import ft.team1.se21.datafile.*;
+import ft.team1.se21.exception.MemberNotFoundException;
 import ft.team1.se21.model.*;
 import ft.team1.se21.ui.MemberUI;
 
@@ -41,7 +48,16 @@ public class MemberManager {
 		return new Member();
 	}
 	
-	public void updateMember(Member memberDetail){
+	public boolean getMember(String memberId)throws MemberNotFoundException {
+		DataFile d = new MemberDataFile();
+//		mlist =(ArrayList<Member>)MDFile.readMembers(Constants.MEMBER_PATH);
 		
+		return true;
 	}
+		
+	public void updateMember(Member memberDetail){
+		MemberDataFile M = new MemberDataFile();
+//		M.writeMembers(Constants.MEMBER_PATH);
+	}
+	
 }

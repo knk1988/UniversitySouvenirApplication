@@ -8,6 +8,7 @@ public class Constants {
 	public static final String TRANSACTION_PATH="data//Transaction.dat";
 	public static final String USER_PATH="data//User.dat";
 	public static final String DISCOUNT_PATH="data//DiscountAndOffers.dat";
+	public static final String MEMBER_PATH="data//Members.dat";
 	public static final String COMMA=",";
 	public static final String NEWLINE="\n";
 	
