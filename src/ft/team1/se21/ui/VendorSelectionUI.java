@@ -1,6 +1,7 @@
-package abc;
+package ft.team1.se21.ui;
 
 import java.awt.Dimension;
+import java.util.HashMap;
 
 import javax.swing.DefaultCellEditor;
 import javax.swing.GroupLayout;
@@ -14,6 +15,9 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.TableColumn;
 
+import ft.team1.se21.manager.InventoryManager;
+import ft.team1.se21.model.PurchaseOrder;
+
 public class VendorSelectionUI extends JFrame {
 
   /**
@@ -25,12 +29,16 @@ public class VendorSelectionUI extends JFrame {
 	private JScrollBar horizontalScrollBar;
 	private JScrollPane scrollPane;
 	private JTable vendorTable;
-
+	private InventoryManager invManager = new InventoryManager();
+	private HashMap<String,PurchaseOrder> po = new HashMap<String,PurchaseOrder>();
 	/**
 	 * Creates new form VendorSelectionUI
 	 */
-	public VendorSelectionUI() {
+	public VendorSelectionUI(InventoryManager iManager, HashMap<String,PurchaseOrder> po) {
+		this.invManager = iManager;
+		this.po = po;
 		initComponents();
+		this.setVisible(true);
 	}
 
 	/**
@@ -106,14 +114,7 @@ public class VendorSelectionUI extends JFrame {
 		pack();
 	}// </editor-fold>
 
-	/**
-	 * @param args
-	 *            the command line arguments
-	 */
-	public static void main(String args[]) {
-		new VendorSelectionUI().setVisible(true);
-	}
-
+	
 	class CustomTableModel extends AbstractTableModel {
 
 		/**
