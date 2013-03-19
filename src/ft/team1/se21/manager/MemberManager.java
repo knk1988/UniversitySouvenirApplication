@@ -11,6 +11,7 @@
 package ft.team1.se21.manager;
 
 import ft.team1.se21.model.*;
+import ft.team1.se21.ui.MemberUI;
 
 
 public class MemberManager {
@@ -18,6 +19,10 @@ public class MemberManager {
 	public void addMember(Member memberDetail) {
 	
 	}
+	public void start(){
+		MemberUI ui = new MemberUI(this);
+	}
+	
 	
 	public void validateMember(Object String) {
 	
