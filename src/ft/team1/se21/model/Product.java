@@ -17,11 +17,11 @@ public class Product {
 	private String productId;
 	private String productName;
 	private String description;
-	private String quantity;
-	private String price;
+	private int quantity;
+	private float price;
 	private String barcodeNumber;
-	private String threshold;
-	private String orderQuantity;
+	private int threshold;
+	private int orderQuantity;
 	private Category category;
 
 	public Product() {
@@ -30,8 +30,8 @@ public class Product {
 	}
 
 	public Product(String productId, String productName, String description,
-			String quantity, String price, String barcodeNumber,
-			String threshold, String orderQuantity, Category category) {
+			int quantity, float price, String barcodeNumber,
+			int threshold, int orderQuantity, Category category) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
@@ -49,11 +49,11 @@ public class Product {
 		this.productId = (String) properties.get("productId");
 		this.productName = (String) properties.get("name");
 		this.description = (String) properties.get("description");
-		this.quantity = (String) properties.get("quantity");
-		this.price = (String) properties.get("price");
+		this.quantity = (int) properties.get("quantity");
+		this.price = (float) properties.get("price");
 		this.barcodeNumber = (String) properties.get("barcodeNumber");
-		this.threshold = (String) properties.get("threshold");
-		this.orderQuantity = (String) properties.get("orderQuantity");
+		this.threshold = (int) properties.get("threshold");
+		this.orderQuantity = (int) properties.get("orderQuantity");
 		this.category = (Category) properties.get("category");
 	}
 
@@ -73,19 +73,19 @@ public class Product {
 		this.description = description;
 	}
 
-	public String getQuantity() {
+	public int getQuantity() {
 		return quantity;
 	}
 
-	public void setQuantity(String quantity) {
+	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
 
-	public String getPrice() {
+	public float getPrice() {
 		return price;
 	}
 
-	public void setPrice(String price) {
+	public void setPrice(float price) {
 		this.price = price;
 	}
 
@@ -97,19 +97,19 @@ public class Product {
 		this.barcodeNumber = barcodeNumber;
 	}
 
-	public String getThreshold() {
+	public int getThreshold() {
 		return threshold;
 	}
 
-	public void setThreshold(String threshold) {
+	public void setThreshold(int threshold) {
 		this.threshold = threshold;
 	}
 
-	public String getOrderQuantity() {
+	public int getOrderQuantity() {
 		return orderQuantity;
 	}
 
-	public void setOrderQuantity(String orderQuantity) {
+	public void setOrderQuantity(int orderQuantity) {
 		this.orderQuantity = orderQuantity;
 	}
 
