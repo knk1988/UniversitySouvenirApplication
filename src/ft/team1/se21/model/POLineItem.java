@@ -14,7 +14,6 @@ package ft.team1.se21.model;
 public class POLineItem {
 
 	private String productId;
-	private String vendorName;
 	private int quantity;
 
 	public POLineItem() {
@@ -22,10 +21,9 @@ public class POLineItem {
 
 	}
 
-	public POLineItem(String productId, String vendorName, int quantity) {
+	public POLineItem(String productId, int quantity) {
 		super();
 		this.productId = productId;
-		this.vendorName = vendorName;
 		this.quantity = quantity;
 	}
 
@@ -35,14 +33,6 @@ public class POLineItem {
 
 	public void setProductId(String productId) {
 		this.productId = productId;
-	}
-
-	public String getVendorName() {
-		return vendorName;
-	}
-
-	public void setVendorName(String vendorName) {
-		this.vendorName = vendorName;
 	}
 
 	public int getQuantity() {
