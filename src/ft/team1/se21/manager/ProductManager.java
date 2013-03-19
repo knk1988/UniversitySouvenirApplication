@@ -12,6 +12,8 @@
 
 package ft.team1.se21.manager;
 
+import java.util.ArrayList;
+
 import ft.team1.se21.model.Category;
 import ft.team1.se21.model.Product;
 
@@ -24,8 +26,8 @@ public class ProductManager {
 	
 	}
 	
-	public Product getProductsToOrder() {
-	return new Product();
+	public ArrayList<Product> getProductsToOrder() {
+	return new ArrayList<Product>();
 	}
 	
 	public void getProduct(String productId){
