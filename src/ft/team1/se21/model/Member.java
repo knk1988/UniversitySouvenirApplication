@@ -4,17 +4,19 @@ public class Member {
 	private String memberName;
 	private String memberId;
 	private int points;
+	private Boolean firstTimeStatus;
 
 	public Member() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Member(String memberName, String memberId, int points) {
+	public Member(String memberName, String memberId, int points, Boolean firstTimeStatus) {
 		super();
 		this.memberName = memberName;
 		this.memberId = memberId;
 		this.points = points;
+		this.firstTimeStatus = firstTimeStatus;
 	}
 
 	public String getName() {
@@ -40,5 +42,14 @@ public class Member {
 	public void setPoints(int points) {
 		this.points = points;
 	}
+
+	public Boolean getFirstTimeStatus() {
+		return firstTimeStatus;
+	}
+
+	public void setFirstTimeStatus(Boolean firstTimeStatus) {
+		this.firstTimeStatus = firstTimeStatus;
+	}
+	
 
 }

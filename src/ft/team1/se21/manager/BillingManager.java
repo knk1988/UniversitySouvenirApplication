@@ -11,10 +11,104 @@
 
 package ft.team1.se21.manager;
 
-import ft.team1.se21.model.Product;
-
+import ft.team1.se21.exception.*;
+import ft.team1.se21.model.*;
+import ft.team1.se21.ui.BillingUI;
+import java.util.ArrayList;
 public class BillingManager {
-	public Product getproductDetails(Object String) {
-	return new Product();
+	
+	//Private Member Variables
+	ProductManager productManager;
+	TransactionManager transactionManager;
+	MemberManager memberManager;
+	Member memberDetail;
+	Transaction transactionDetail;
+	ArrayList<TransactionLineItem> transactionLineItemList;
+	Long transactionId;
+	
+	//Constructor
+	public BillingManager(){
+		productManager = new ProductManager();
+		transactionManager = new TransactionManager();
+		memberManager = new MemberManager();
+		transactionLineItemList = new ArrayList<TransactionLineItem>();
+	}
+	
+	// This method shows the billing screen
+	public void start(){
+		BillingUI billingUI = new BillingUI();
+		billingUI.setVisible(true);
+	}
+	
+	//This method fetches the product details given the product code
+	public Product getProductDetails(String productCode){
+		Product productDetail = new Product();
+		productDetail = productManager.getProduct(productCode);
+		return productDetail;
+		}
+	
+	// This method prepares the transaction for checkout
+	public Transaction prepareCheckout(ArrayList<TransactionLineItem> transactionItem){
+		// TODO - Call getLastTransactionId from TransactionDataFile to get the last transaction from the dat
+		transactionDetail = new Transaction(0,transactionItem);
+		return transactionDetail;
+	}
+	
+	// This method gets the transaction details
+	public Transaction getTransaction(){
+		return transactionDetail;
+	}
+	
+	// This method checks whether the member found in the member details given the member id
+	public Boolean checkMemberDetails(String memberId) throws MemberNotFoundException{
+		Boolean isMemberFound = false;
+		memberDetail = new Member();
+		memberDetail = memberManager.getMemberDetails(memberId);
+		if(memberDetail!=null){
+			isMemberFound = true;
+		}
+		return isMemberFound;
+		
+	}
+	
+	// This method checks how much points a member can redeem depending on the points avialable
+	public int checkRewardPoints(int points){
+		int redeemablePoints = 0;
+		if(memberDetail!=null){
+			redeemablePoints = memberDetail.getPoints()>points?points:memberDetail.getPoints();
+		}
+		return redeemablePoints;
+	}
+	
+	// This method will update the reward points requested by user
+	public void updateRewardPoints(int points){
+		if(memberDetail!=null){
+			memberDetail.setPoints(points);
+			memberManager.updateMember(memberDetail);
+		}
+	}
+	
+	// This method calculates the discount
+	public double getDiscount(){
+		double discountPercent = 0;
+		if(memberDetail!=null){
+			if(memberDetail.getFirstTimeStatus()){
+				discountPercent = 20;
+			}
+			else{
+				discountPercent = 10;
+			}
+		}
+		
+		// TODO Puneet need to change the data file classes to proceed further
+		//DataFile dataFile = new Discount_OffersDataFile();
+		//ArrayList<DiscountAndOffers> discountAndOffersList = dataFile.readDiscount_Offers(Constants.PRODUCT_PATH);
+		
+		return discountPercent;
+	}
+	
+	// This method calculates the final discounts on the bill based on the discount percentage and reward points
+	public void applyDiscountsAndOffersToTransaction(){
+		//TODO
 	}
 }
