@@ -21,6 +21,7 @@ public class MemberUI extends javax.swing.JFrame {
 
     /**
      * Creates new form MemberUI
+     * add constructor to pass reference
      */
     public MemberUI() {
         initComponents();
@@ -148,7 +149,10 @@ public class MemberUI extends javax.swing.JFrame {
             }
         });
     }
-    
+ 
+    /*
+    *function to set and get reference
+    */
     public MemberManager getMemberManager() {
 		return membermanager;
 	}
