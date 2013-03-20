@@ -22,7 +22,7 @@ public class Product {
 	private String barcodeNumber;
 	private int threshold;
 	private int orderQuantity;
-	private Category category;
+	private String categoryCode;
 
 	public Product() {
 		super();
@@ -31,7 +31,7 @@ public class Product {
 
 	public Product(String productId, String productName, String description,
 			int quantity, float price, String barcodeNumber,
-			int threshold, int orderQuantity, Category category) {
+			int threshold, int orderQuantity, String categoryCode) {
 		super();
 		this.productId = productId;
 		this.productName = productName;
@@ -41,7 +41,7 @@ public class Product {
 		this.barcodeNumber = barcodeNumber;
 		this.threshold = threshold;
 		this.orderQuantity = orderQuantity;
-		this.category = category;
+		this.categoryCode = categoryCode;
 	}
 
 	public Product(Map<String, Object> properties) {
@@ -54,7 +54,7 @@ public class Product {
 		this.barcodeNumber = (String) properties.get("barcodeNumber");
 		this.threshold = (int) properties.get("threshold");
 		this.orderQuantity = (int) properties.get("orderQuantity");
-		this.category = (Category) properties.get("category");
+		this.categoryCode = (String) properties.get("categoryCode");
 	}
 
 	public String getProductId() {
@@ -121,12 +121,12 @@ public class Product {
 		this.productName = productName;
 	}
 
-	public Category getCategory() {
-		return category;
+	public String getCategoryCode() {
+		return categoryCode;
 	}
 
-	public void setCategory(Category category) {
-		this.category = category;
+	public void setCategoryCode(String categoryCode) {
+		this.categoryCode = categoryCode;
 	}
 
-} 
+}

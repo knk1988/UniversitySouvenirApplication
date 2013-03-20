@@ -9,32 +9,133 @@
 //
 //
 
-
 package ft.team1.se21.manager;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
+import ft.team1.se21.constants.Constants;
+import ft.team1.se21.datafile.DataFile;
+import ft.team1.se21.datafile.ProductDataFile;
 import ft.team1.se21.model.Category;
 import ft.team1.se21.model.Product;
+import ft.team1.se21.ui.AddProductUI;
 
 public class ProductManager {
-	public Category getProductCategories() {
-	return new Category();
+	
+ /*	public Category getProductCategories() {
+		return new Category();
+	}*/
+	//instantiation of the add product UI
+		public void start(){
+			AddProductUI addproduct = new AddProductUI();
+			addproduct.setVisible(true);
+		}
+	public void addProduct(Product prod) throws IOException {
+
+		String CatCode = prod.getCategoryCode();
+		ProductDataFile pData = new ProductDataFile();
+		List<Product> plist = pData.readProducts(Constants.PRODUCT_PATH);
+		Iterator<Product> chkProd = plist.iterator();
+		System.out.println("chkprod "+plist.size());
+		int countProd = 0;
+		while (chkProd.hasNext()) {
+			Product prodPresent = chkProd.next();
+			if ((prodPresent.getCategoryCode()).equals(CatCode)) {
+				countProd++;
+			}
+
+		}
+		//plist.clear();
+		String prodId = CatCode + "/" + (countProd + 1);
+		prod.setProductId(prodId);
+		System.out.println("prodId" + prodId);
+		plist.add(prod);
+		// ProductDataFile pData = new ProductDataFile();
+		pData.setProductList(plist);
+		pData.writeProducts(Constants.PRODUCT_PATH);
+
 	}
-	
-	public void addProduct(Object Product) {
-	
+
+	public ArrayList<Product> getProductsToOrder() throws IOException {
+		ArrayList<Product> pBelowThresholdList;
+		// Read the Products.dat file as follows:
+		ProductDataFile pData = new ProductDataFile();
+		List<Product> pList = pData.readProducts(Constants.PRODUCT_PATH);
+
+		pBelowThresholdList = new ArrayList<Product>();
+		Iterator<Product> productIterator = pList.iterator();
+		while (productIterator.hasNext()) {
+			Product p = productIterator.next();
+			if (p.getQuantity() <= p.getThreshold()) {
+				pBelowThresholdList.add(p);
+			}
+		}
+
+		pList = null;
+		return (pBelowThresholdList);
+
 	}
-	
-	public ArrayList<Product> getProductsToOrder() {
-	return new ArrayList<Product>();
+
+	public Product getProduct(String productId) throws IOException {
+		String path = Constants.PRODUCT_PATH;
+		ProductDataFile pData = new ProductDataFile();
+		Product prod = new Product();
+		// Reading the product data file and getting in a ArrayList
+		List<Product> pList = new ArrayList<Product>();
+		pList = pData.readProducts(path);
+		Iterator<Product> productIterator = pList.iterator();
+		try {
+			while (productIterator.hasNext()) {
+				prod = productIterator.next();
+				if (productId.equals(prod.getProductId()))
+					break;
+			}
+		} catch (Exception e) {
+			// throw new FileIsEmptyException("File Is Empty");
+
+		}
+		return prod;
 	}
-	
-	public Product getProduct(String productId){
-		return new Product();
-	}
-	
+
 	public void generateReport() {
-	
+		try{
+			ProductDataFile pData = new ProductDataFile();
+			List<Product> plist = pData.readProducts("resources//Product.dat");
+			Iterator<Product> Prod = plist.iterator();
+			System.out.println("Generated Report for Products :");
+			System.out.println("Product ID " + " 	" + "Product Name " + "		" + "Description "+ " 	" + "Quantity "
+					+ "		" + "Price "+ "		" + "Barcode "+ "		" + "Threshold "+ "		" + "ReOrderQuantity "
+					+ "		" + "Category ");
+			while (Prod.hasNext()) {
+				Product prodPresent = Prod.next();
+				System.out.print(prodPresent.getProductId());
+				System.out.print(" 		");
+				System.out.print(prodPresent.getProductName());
+				System.out.print(" 		");
+				System.out.print(prodPresent.getDescription());
+				System.out.print(" 		");
+				System.out.print(prodPresent.getQuantity());
+				System.out.print(" 		");
+				System.out.print(prodPresent.getPrice());
+				System.out.print(" 		");
+				System.out.print(prodPresent.getBarcodeNumber());
+				System.out.print(" 		");
+				System.out.print(prodPresent.getThreshold());
+				System.out.print(" 		");
+				System.out.print(prodPresent.getOrderQuantity());
+				System.out.print(" 		");
+				System.out.print(prodPresent.getCategoryCode());
+				System.out.println(" ");
+				
+			}
+		}
+		
+		catch(Exception e){
+		
+		}
+
 	}
 }
