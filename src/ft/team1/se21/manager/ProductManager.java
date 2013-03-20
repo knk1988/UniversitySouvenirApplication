@@ -19,6 +19,7 @@ import java.util.List;
 import ft.team1.se21.constants.Constants;
 import ft.team1.se21.datafile.DataFile;
 import ft.team1.se21.datafile.ProductDataFile;
+import ft.team1.se21.exception.FileIsEmptyException;
 import ft.team1.se21.model.Category;
 import ft.team1.se21.model.Product;
 import ft.team1.se21.ui.AddProductUI;
@@ -94,7 +95,7 @@ public class ProductManager {
 					break;
 			}
 		} catch (Exception e) {
-			// throw new FileIsEmptyException("File Is Empty");
+			 throw new FileIsEmptyException("File Is Empty");
 
 		}
 		return prod;
