@@ -27,11 +27,18 @@ public abstract class DataFile {
 			throws IOException {
 		FileWriter fileWriter = new FileWriter(path);
 		BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+	//bufferedWriter.flush();
+		
 		for (String lineItem : items) {
+			//System.out.println("inside for"+lineItem);
 			bufferedWriter.write(lineItem);
-			bufferedWriter.newLine();
+			//bufferedWriter.newLine();
+			
 		}
-
+		bufferedWriter.close();
+		fileWriter.close();
+		
+		
 	}
 
 }

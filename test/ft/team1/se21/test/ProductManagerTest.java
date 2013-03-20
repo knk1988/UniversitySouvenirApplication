@@ -3,38 +3,20 @@ package ft.team1.se21.test;
 import static org.junit.Assert.*;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 
 import ft.team1.se21.manager.ProductManager;
-import ft.team1.se21.model.Category;
+
 import ft.team1.se21.model.Product;
 
 public class ProductManagerTest {
 
-/*	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-	}
 
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-	}
 
-	@Before
-	public void setUp() throws Exception {
-		
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}*/
-
-	@SuppressWarnings("deprecation")
-	@Test
+/*@Test
 	public void testAddProduct() throws IOException {
 		
 		Product prod = new Product(null, "UCBshirt","UCB",4,(float)1500.0,"abc001",15,25,"CLO");
@@ -50,22 +32,34 @@ public class ProductManagerTest {
 		assertEquals(prodTest.getOrderQuantity(),25);
 		
 		
-	}
-/*
-	@Test
-	public void testGetProductsToOrder() {
-		//fail("Not yet implemented");
-	}
+	}*/
 
+	@Test
+	public void testGetProductsToOrder() throws IOException {
+		Product prod1 = new Product(null, "UCBshirt","UCB",4,(float)1500.0,"abc001",15,25,"CLO");
+		Product prod2 = new Product(null, "LevisShirt","Levis",3,(float)1500.0,"abc001",20,25,"CLO");
+		Product prod3 = new Product(null, "Mug","DecorationMug",26,(float)1500.0,"abc001",20,25,"MUG");
+		ProductManager prMgr = new ProductManager();
+		prMgr.addProduct(prod1);
+		prMgr.addProduct(prod2);
+		prMgr.addProduct(prod3);
+		List<Product> productsBThrshold = new ArrayList<Product>();
+		productsBThrshold = prMgr.getProductsToOrder();
+		System.out.println("productsBThrshold"+productsBThrshold);
+		assertEquals(2,productsBThrshold.size());
+		
+	}
+	/*
 	@Test
 	public Product testGetProduct() {
 		//fail("Not yet implemented");
 		return null;
 	}
-
+*/
 	@Test
 	public void testGenerateReport() {
-		//fail("Not yet implemented");
+		ProductManager prMgr = new ProductManager();
+		prMgr.generateReport();
 	}
-*/
+
 }

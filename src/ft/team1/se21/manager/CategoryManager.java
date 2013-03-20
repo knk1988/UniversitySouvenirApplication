@@ -11,27 +11,102 @@
 
 package ft.team1.se21.manager;
 
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+import ft.team1.se21.constants.Constants;
+import ft.team1.se21.datafile.CategoryDataFile;
+import ft.team1.se21.exception.CategoryAlreadyPresentException;
 import ft.team1.se21.model.Category;
+import ft.team1.se21.ui.ViewCategoryUI;
 
 public class CategoryManager {
-	public Object memberName;
-	public Category getCategories() {
-	return new Category();
-	}
+		
+	//instantiating the view category UI
+    public void start(){
+		ViewCategoryUI viewCategory = new ViewCategoryUI();
+		viewCategory.setVisible(true);
+		}
 	
-	public void addCategory(Category category) {
+  //returning the categories in array list
+  	public List<Category> getCategories()throws IOException {
+  		String path=Constants.CATEGORY_PATH;
+  		CategoryDataFile cData = new CategoryDataFile();
+  		List<Category> cList = new ArrayList<Category>();
+  		cList = cData.readCategories(path);
+  		return cList;
+  	}
 	
+	public void addCategory(Category category) throws IOException {
+		CategoryDataFile cData = new CategoryDataFile();
+		List<Category> cList = cData.readCategories(Constants.CATEGORY_PATH);
+		Iterator<Category> categoryIterator = cList.iterator();
+			
+		while (categoryIterator.hasNext()) {
+			if (categoryIterator.next().getCategoryCode()== category.getCategoryCode()) {
+				throw new CategoryAlreadyPresentException();				
+			}
+		}
+		cList.add(category);
+		`cData.setCategoryList(cList);
+		cData.writeCategories(Constants.CATEGORY_PATH);
+		createVendorFile(category.getCategoryCode());
+		
 	}
 	
 	public void generateReport() {
-	
+		try{
+			CategoryDataFile cData = new CategoryDataFile();
+			List<Category> cList = cData.readCategories(Constants.CATEGORY_PATH);
+			Iterator<Category> categoryIterator = cList.iterator();
+			System.out.println("Generated Report for Categoriess :");
+			System.out.println("CategoryCode " + " 	" + "Category Name " );
+			while (categoryIterator.hasNext()) {
+				Category CategoryPresent = categoryIterator.next();
+				System.out.print(CategoryPresent.getCategoryCode());
+				System.out.print(" 		");
+				System.out.print(CategoryPresent.getName());
+				System.out.println(" ");
+				
+			}
+		}
+		
+		catch(Exception e){		
+		}
 	}
 	
-	public void createVendorFile(Object String) {
+	public void createVendorFile(String newCategoryCode) throws IOException {
+		File file = new File("data//Vendor_"+ newCategoryCode+".dat");    
+		         //if file doesn't exists, then create it
+		 if(!file.exists()){
+		      file.createNewFile();
+		  }		
 	
 	}
+
 	
-	public Category getCategory(Object String) {
-	return new Category();
+	public Category getCategory(String CatCode) throws IOException {
+		String path = Constants.CATEGORY_PATH;
+		CategoryDataFile cData = new CategoryDataFile();
+		Category category = new Category();
+		// Reading the category data file and getting in a ArrayList
+		List<Category> cList = new ArrayList<Category>();
+		cList = cData.readCategories(path);
+		Iterator<Category> categoryIterator = cList.iterator();
+		try {
+			while (categoryIterator.hasNext()) {
+				category = categoryIterator.next();
+				if (CatCode.equals(category.getCategoryCode()))
+					break;
+			}
+		} catch (Exception e) {
+			// throw new FileIsEmptyException("File Is Empty");
+
+		}
+		return category;	
+	
 	}
 }
