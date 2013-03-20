@@ -8,7 +8,7 @@ import ft.team1.se21.constants.Constants;
 import ft.team1.se21.model.Product;
 
 public class ProductDataFile extends DataFile {
-public List<Product> productList;
+private List<Product> productList;
 
 	public List<Product> readProducts(String path) throws IOException {
 		// TODO Auto-generated method stub
