@@ -37,7 +37,7 @@ public class ProductManager {
 	public void addProduct(Product prod) throws IOException {
 
 		String CatCode = prod.getCategoryCode();
-		ProductDataFile pData = new ProductDataFile();
+		ProductDataFile pData = ProductDataFile.getInstance();
 		List<Product> plist = pData.readProducts(Constants.PRODUCT_PATH);
 		Iterator<Product> chkProd = plist.iterator();
 		//System.out.println("chkprod "+plist.size());
