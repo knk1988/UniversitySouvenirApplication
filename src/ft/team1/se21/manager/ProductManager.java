@@ -40,7 +40,7 @@ public class ProductManager {
 		ProductDataFile pData = new ProductDataFile();
 		List<Product> plist = pData.readProducts(Constants.PRODUCT_PATH);
 		Iterator<Product> chkProd = plist.iterator();
-		System.out.println("chkprod "+plist.size());
+		//System.out.println("chkprod "+plist.size());
 		int countProd = 0;
 		while (chkProd.hasNext()) {
 			Product prodPresent = chkProd.next();
@@ -52,7 +52,7 @@ public class ProductManager {
 		//plist.clear();
 		String prodId = CatCode + "/" + (countProd + 1);
 		prod.setProductId(prodId);
-		System.out.println("prodId" + prodId);
+		//System.out.println("prodId" + prodId);
 		plist.add(prod);
 		// ProductDataFile pData = new ProductDataFile();
 		pData.setProductList(plist);
@@ -107,7 +107,7 @@ public class ProductManager {
 			List<Product> plist = pData.readProducts("resources//Product.dat");
 			Iterator<Product> Prod = plist.iterator();
 			System.out.println("Generated Report for Products :");
-			System.out.println("Product ID " + " 	" + "Product Name " + "		" + "Description "+ " 	" + "Quantity "
+			System.out.println("Product ID " + " 	" + "Product Name " + "	 	" + "Description "+ " 	" + "Quantity "
 					+ "		" + "Price "+ "		" + "Barcode "+ "		" + "Threshold "+ "		" + "ReOrderQuantity "
 					+ "		" + "Category ");
 			while (Prod.hasNext()) {

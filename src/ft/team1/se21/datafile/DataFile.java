@@ -30,7 +30,7 @@ public abstract class DataFile {
 	//bufferedWriter.flush();
 		
 		for (String lineItem : items) {
-			System.out.println("inside for"+lineItem);
+			//System.out.println("inside for"+lineItem);
 			bufferedWriter.write(lineItem);
 			//bufferedWriter.newLine();
 			
