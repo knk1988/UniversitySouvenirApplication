@@ -7,6 +7,7 @@ import java.util.List;
 import ft.team1.se21.constants.Constants;
 import ft.team1.se21.model.Product;
 
+// Product Data File
 public class ProductDataFile extends DataFile {
 	List<Product> productList = new ArrayList<Product>();
 
