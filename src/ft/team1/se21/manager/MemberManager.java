@@ -10,12 +10,15 @@
 
 package ft.team1.se21.manager;
 
-import java.awt.List;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 import ft.team1.se21.constants.Constants;
 import ft.team1.se21.datafile.*;
+import ft.team1.se21.exception.FileIsEmptyException;
+import ft.team1.se21.exception.MemberAlreadyPresentException;
 import ft.team1.se21.exception.MemberNotFoundException;
 import ft.team1.se21.model.*;
 import ft.team1.se21.ui.MemberUI;
@@ -48,11 +51,23 @@ public class MemberManager {
 		return new Member();
 	}
 	
-	public boolean getMember(String memberId)throws MemberNotFoundException {
-		DataFile d = new MemberDataFile();
-//		mlist =(ArrayList<Member>)MDFile.readMembers(Constants.MEMBER_PATH);
-		
-		return true;
+	public Member getMember(String memberId)throws IOException {
+		String path = Constants.MEMBER_PATH;
+		Member member = new Member();
+		MemberDataFile d = new MemberDataFile();	
+		List <Member> mList = new ArrayList <Member> ();
+		mList = d.readMembers(path);
+		Iterator<Member> MemberIterator = mList.iterator();
+		try {
+			while (MemberIterator.hasNext()) {
+				member = MemberIterator.next();
+				if (memberId.equals(member.getMemberId()))
+					break;
+			}
+		} catch (Exception e) {
+			 throw new MemberAlreadyPresentException("Member already exist");
+		}	
+		return member;
 	}
 		
 	public void updateMember(Member memberDetail){
