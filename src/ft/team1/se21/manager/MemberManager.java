@@ -50,7 +50,7 @@ public class MemberManager {
 	public Member getMemberDetails(String memberId){
 		return new Member();
 	}
-	
+//get member detail if exist	
 	public Member getMember(String memberId)throws IOException {
 		String path = Constants.MEMBER_PATH;
 		Member member = new Member();
@@ -69,7 +69,32 @@ public class MemberManager {
 		}	
 		return member;
 	}
-		
+
+	//add new member to mamber.dat
+	public void addMember(String UserName, String Password)throws MemberNotFoundException{
+		try {
+			 Member member=getMember(UserName);
+			 member.setMemberId(UserName);
+			 member.setFirstTimeStatus(true);
+			 member.setPoints(0);
+			 String path = Constants.MEMBER_PATH;
+			 MemberDataFile d = new MemberDataFile();	
+			 List <Member> mList = new ArrayList <Member> ();
+			 mList = d.readMembers(path);
+			 mList.add(member);
+
+			 throw new MemberNotFoundException("Member not found");
+			
+		} 
+		catch (Exception MemberAlreadyPresent){
+			throw new MemberAlreadyPresent("Member already exist");
+		}
+			
+
+	}
+	
+	
+	
 	public void updateMember(Member memberDetail){
 		MemberDataFile M = new MemberDataFile();
 //		M.writeMembers(Constants.MEMBER_PATH);
